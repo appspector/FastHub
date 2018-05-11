@@ -1,12 +1,13 @@
 apply plugin: 'com.android.application'
+//apply plugin: 'com.appspector.sdk'
 apply plugin: 'com.apollographql.android'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.novoda.build-properties'
 apply plugin: 'jacoco-android'
 apply plugin: 'io.fabric'
-apply plugin: 'com.appspector.sdk'
 
+//
 buildProperties {
     notThere {
         file rootProject.file('debug_gradle.properties')
