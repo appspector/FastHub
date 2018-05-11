@@ -21,6 +21,10 @@ buildscript {
         google()
         jcenter()
         maven { url 'https://maven.fabric.io/public' }
+
+        maven {
+            url System.getenv('APPSPECTOR_MAVEN_URL') ?: "https://maven.appspector.com/artifactory/android-sdk"
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.0-alpha08'
@@ -30,6 +34,7 @@ buildscript {
         classpath 'io.fabric.tools:gradle:1.24.1'
         classpath 'com.apollographql.apollo:gradle-plugin:0.4.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin_version}"
+        classpath "com.appspector:android-sdk-plugin:+"
     }
 }
 

@@ -4,6 +4,7 @@ import android.app.Application;
 import android.support.annotation.NonNull;
 import android.support.v7.preference.PreferenceManager;
 
+import com.appspector.sdk.AppSpector;
 import com.fastaccess.data.dao.model.Models;
 import com.fastaccess.helper.DeviceNameGetter;
 import com.fastaccess.helper.TypeFaceHelper;
@@ -36,6 +37,15 @@ public class App extends Application {
     @Override public void onCreate() {
         super.onCreate();
         instance = this;
+
+        AppSpector
+                .build(this)
+                .addPerformanceMonitor()
+                .addHttpMonitor()
+                .addLogMonitor()
+                .addScreenshotMonitor()
+                .addSQLMonitor()
+                .run(BuildConfig.APPSPECTOR_API_KEY);
         init();
     }
 
