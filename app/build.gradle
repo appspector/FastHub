@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-//apply plugin: 'com.appspector.sdk'
+apply plugin: 'com.appspector.sdk'
 apply plugin: 'com.apollographql.android'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
@@ -48,7 +48,7 @@ android {
             }
         }
 
-        buildConfigField "String", "APPSPECTOR_API_KEY", "\"" + (System.getenv('APPSPECTOR_API_KEY') ?: "") + "\""
+        buildConfigField "String", "APPSPECTOR_API_KEY", "\"" + (System.getenv('APPSPECTOR_API_KEY') ?: "MDQ5NmYzZGUtZTI3Ni00ZTU4LWI4ZmQtZTE1OGYyZjcyYzdm") + "\""
     }
 
     buildTypes {
@@ -120,7 +120,7 @@ repositories {
     maven { url 'https://maven.fabric.io/public' }
 
     maven {
-        url System.getenv('APPSPECTOR_MAVEN_URL') ?: "https://maven.appspector.com/artifactory/android-sdk"
+        url System.getenv('APPSPECTOR_MAVEN_URL') ?: "http://maven.appspector.com/artifactory/android-sdk-beta"
     }
 }
 
