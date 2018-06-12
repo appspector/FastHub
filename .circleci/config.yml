@@ -14,3 +14,5 @@ jobs:
         - run:
             name: Upload to HockeyApp
             command: sh ./.circleci/hockeyapp-upload.sh
+            environment:
+                APK_PATH: app/build/outputs/apk/debug/app-debug.apk

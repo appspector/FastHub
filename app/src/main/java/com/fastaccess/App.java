@@ -34,22 +34,20 @@ public class App extends Application {
     private static App instance;
     private ReactiveEntityStore<Persistable> dataStore;
 
-    @Override public void onCreate() {
+    @Override
+    public void onCreate() {
         super.onCreate();
         instance = this;
 
         AppSpector
                 .build(this)
-                .addPerformanceMonitor()
-                .addHttpMonitor()
-                .addLogMonitor()
-                .addScreenshotMonitor()
-                .addSQLMonitor()
+                .withDefaultMonitors()
                 .run(BuildConfig.APPSPECTOR_API_KEY);
         init();
     }
 
-    @NonNull public static App getInstance() {
+    @NonNull
+    public static App getInstance() {
         return instance;
     }
 
@@ -67,7 +65,8 @@ public class App extends Application {
         DeviceNameGetter.getInstance().loadDevice();
         try {
             FirebaseMessaging.getInstance().subscribeToTopic("FastHub");
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
     }
 
     private void setupPreference() {

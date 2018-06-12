@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-//apply plugin: 'com.appspector.sdk'
+apply plugin: 'com.appspector.sdk'
 apply plugin: 'com.apollographql.android'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
@@ -48,7 +48,7 @@ android {
             }
         }
 
-        buildConfigField "String", "APPSPECTOR_API_KEY", "\"" + (System.getenv('APPSPECTOR_API_KEY') ?: "") + "\""
+        buildConfigField "String", "APPSPECTOR_API_KEY", "\"" + (System.getenv('APPSPECTOR_API_KEY') ?: "MDQ5NmYzZGUtZTI3Ni00ZTU4LWI4ZmQtZTE1OGYyZjcyYzdm") + "\""
     }
 
     buildTypes {
@@ -120,7 +120,7 @@ repositories {
     maven { url 'https://maven.fabric.io/public' }
 
     maven {
-        url System.getenv('APPSPECTOR_MAVEN_URL') ?: "https://maven.appspector.com/artifactory/android-sdk"
+        url System.getenv('APPSPECTOR_MAVEN_URL') ?: "http://maven.appspector.com/artifactory/android-sdk-beta"
     }
 }
 
@@ -162,10 +162,10 @@ dependencies {
     implementation "com.atlassian.commonmark:commonmark-ext-gfm-tables:${commonmark}"
     implementation "com.atlassian.commonmark:commonmark-ext-ins:${commonmark}"
     implementation "com.atlassian.commonmark:commonmark-ext-yaml-front-matter:${commonmark}"
-    implementation "com.google.firebase:firebase-core:${gms}"
-    implementation "com.google.firebase:firebase-messaging:${gms}"
-    implementation "com.google.firebase:firebase-database:${gms}"
-    implementation "com.google.android.gms:play-services-base:${gms}"
+    implementation "com.google.firebase:firebase-core:16.0.0"
+    implementation "com.google.firebase:firebase-messaging:17.0.0"
+    implementation "com.google.firebase:firebase-database:16.0.1"
+    implementation "com.google.android.gms:play-services-base:15.0.1"
     implementation('com.github.b3er.rxfirebase:firebase-database-kotlin:11.2.0') { transitive = false }
     implementation('com.github.b3er.rxfirebase:firebase-database:11.2.0') { transitive = false }
     implementation('com.crashlytics.sdk.android:crashlytics:2.9.0@aar') { transitive = true }
